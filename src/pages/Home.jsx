@@ -1,10 +1,11 @@
 import useAuth from "../hooks/useAuth";
-
+import { Button, Navbar } from "flowbite-react";
+import logo from '../assets/logo.jpg'
 
 const Home = () => {
 
 
-    const { user, logOut, loading } = useAuth();
+    const { user, logOut } = useAuth();
     const handleLogout = () => {
         logOut()
             .then(() => {
@@ -19,8 +20,24 @@ const Home = () => {
 
     return (
         <div>
-            This is home page <br></br>
-            <button onClick={handleLogout}>Log out</button>
+            <Navbar>
+                <Navbar.Brand href="/">
+                    <img src={logo} className="w-[100px]" alt="Flowbite React Logo" />
+                </Navbar.Brand>
+                <div className="flex md:order-2">
+                    {
+                        user && <Button onClick={handleLogout}>Log out</Button>
+                    }
+                    <Navbar.Toggle />
+                </div>
+                <Navbar.Collapse>
+                    <Navbar.Link href="#" active>Home</Navbar.Link>
+                    <Navbar.Link href="#">About</Navbar.Link>
+                    <Navbar.Link href="#">Services</Navbar.Link>
+                    <Navbar.Link href="#">Pricing</Navbar.Link>
+                    <Navbar.Link href="#">Contact</Navbar.Link>
+                </Navbar.Collapse>
+            </Navbar>
         </div>
     );
 };
