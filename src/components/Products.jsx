@@ -6,7 +6,6 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    console.log(totalPages);
 
     // States for filtering and sorting
     const [searchTerm, setSearchTerm] = useState('');
@@ -67,13 +66,16 @@ const Products = () => {
                 {/* Brand Selector */}
                 <select name="brand">
                     <option value="">All Brands</option>
-                    {/* Add brand options dynamically */}
+                    <option value="Tesla">Tesla</option>
+                    <option value="Audi">Audi</option>
+                    <option value="BMW">BMW</option>
                 </select>
 
                 {/* Category Selector */}
                 <select name="category">
                     <option value="">All Categories</option>
-                    {/* Add category options dynamically */}
+                    <option value="electric">Electric</option>
+                    
                 </select>
 
                 {/* Price Range */}
@@ -94,7 +96,7 @@ const Products = () => {
             </form>
 
             {/* Products List */}
-            <div>
+            <div className='product-container'>
                 {products.map(product => (
                     // <div key={product._id}>{product.name}</div>
                     <ProductsCard product={product}></ProductsCard>

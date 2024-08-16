@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCXydgEUycsAuWgnVguJElNU1I6_yvtVn0",
-  authDomain: "car-delar-11a76.firebaseapp.com",
-  projectId: "car-delar-11a76",
-  storageBucket: "car-delar-11a76.appspot.com",
-  messagingSenderId: "720434122639",
-  appId: "1:720434122639:web:2f4042cc7307a945de05fa"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
