@@ -25,7 +25,7 @@ This repository contains the frontend code for the JobTASK project, a single-pag
 2. Navigate to the project directory: cd JobTASK-frontend
 3. Install the necessary dependencies: npm install
 4. Set up Firebase configuration: Create a .env file in the root of your project and add the following Firebase configuration:
-- *REACT_APP_FIREBASE_API_KEY=your_api_key
+- REACT_APP_FIREBASE_API_KEY=your_api_key
 -REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
 -REACT_APP_FIREBASE_PROJECT_ID=your_project_id
 -REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
