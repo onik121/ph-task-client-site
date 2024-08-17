@@ -14,7 +14,7 @@ const FooterBottom = () => {
                             src={logo}
                             alt="Logo"
                         />
-                        <p className="max-w-[300px] mt-4">Specializes in providing high-class tours for those in need. Contact Us</p>
+                        <p className="max-w-[300px] mt-4">Unleash the Road Ahead: Your Next Car Awaits</p>
                     </div>
                     <div className="space-y-2">
                         <h2 className="text-2xl font-semibold text-[#3f3f3f] mb-3">Quick Link</h2>
@@ -37,7 +37,7 @@ const FooterBottom = () => {
                 </div>
                 <div className="footer-divider my-8"></div>
                 <div className="w-full sm:flex sm:items-center sm:justify-between pb-5 max-w-[1440px] mx-auto px-4">
-                    <FooterCopyright href="#" by="Homzen™" year={2024} />
+                    <FooterCopyright href="#" by="GENESIS AUTO" year={2024} />
                     <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
                         <FooterIcon href="#" icon={BsFacebook} />
                         <FooterIcon href="#" icon={BsInstagram} />

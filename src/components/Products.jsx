@@ -19,7 +19,7 @@ const Products = () => {
     const [sortByDate, setDate] = useState('');
 
     const fetchProducts = async () => {
-        const res = await axios.get(`http://localhost:5000/products`, {
+        const res = await axios.get(`https://ph-task-server-blond.vercel.app/products`, {
             params: {
                 page: currentPage,
                 search: searchTerm,
@@ -48,7 +48,6 @@ const Products = () => {
         setSearchTerm(search);
         setMinPrice(minPrice);
         setMaxPrice(maxPrice);
-
         setCurrentPage(1);
     };
 

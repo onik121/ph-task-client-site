@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form"
 import { toast } from 'react-toastify';
 import useAuth from '../hooks/useAuth';
+import SocialLogin from '../components/SocialLogin';
 
 
 const Register = () => {
@@ -51,11 +52,6 @@ const Register = () => {
                                         <input type="email" name="email" {...register("email", { required: true })} />
                                         {errors.email && <span className='text-red-600'>Email is required</span>}
                                     </div>
-                                    {/* <div>
-                                        <label>Photo Url</label>
-                                        <input type="text" name="photo" {...register("photo", { required: true })} />
-                                        {errors.photo && <span className='text-red-600'>Photo Url is required</span>}
-                                    </div> */}
                                     <div>
                                         <label className='block'>Password</label>
                                         <input type="password" name="password" {...register("password", {
@@ -76,7 +72,7 @@ const Register = () => {
                                 <div className='text-center my-4'>
                                     <p className='font-medium'>- Or Sign Up With - </p>
                                 </div>
-                                {/* <SocialLogin></SocialLogin>/ */}
+                                <SocialLogin></SocialLogin>
                                 <div className='text-center my-4'>
                                     <p>Already Have an Account? <Link to={'/login'}><span className='font-medium'>Sign In</span></Link></p>
                                 </div>

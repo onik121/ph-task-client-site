@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import useAuth from './../hooks/useAuth';
+import SocialLogin from '../components/SocialLogin';
 
 
 
@@ -53,7 +54,7 @@ const Login = () => {
                                 <div className='text-center my-4'>
                                     <p className='font-medium'>- Or Sign in With - </p>
                                 </div>
-                                {/* <SocialLogin></SocialLogin> */}
+                                <SocialLogin></SocialLogin>
                                 <div className='text-center my-4'>
                                     <p>Dont You Have an Account? <Link to={'/register'}><span className='font-medium'>Sign Up</span></Link></p>
                                 </div>

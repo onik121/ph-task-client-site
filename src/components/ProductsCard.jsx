@@ -8,7 +8,7 @@ const ProductsCard = ({ product }) => {
             <img className="max-h-[240px] w-full h-full" src={image}></img>
             <div className="p-5">
                 <div className="flex items-center justify-between">
-                    <h3 className="text-2xl ">{name}</h3>
+                    <h3 className="text-2xl font-semibold">{name}</h3>
                     <p className="capitalize mt-1">{category}</p>
                 </div>
                 <p className="mt-3">{description}</p>
