@@ -93,15 +93,40 @@ const Products = () => {
                 </div>
 
                 <div>
-                    <select name="brand" onChange={handleBrandChange}>
+                    <select name="brand" className='example' onChange={handleBrandChange}>
                         <option value="">All Brands</option>
                         <option value="Tesla">Tesla</option>
                         <option value="Audi">Audi</option>
                         <option value="BMW">BMW</option>
+                        <option value="Ford">Ford</option>
+                        <option value="Mercedes-Benz">Mercedes-Benz</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Chevrolet">Chevrolet</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Porsche">Porsche </option>
+                        <option value="Lexus">Lexus</option>
+                        <option value="Hyundai">Hyundai</option>
+                        <option value="Jaguar">Jaguar</option>
+                        <option value="Volvo">Volvo</option>
+                        <option value="Mazda">Mazda</option>
+                        <option value="Kia">Kia</option>
+                        <option value="Subaru">Subaru</option>
+                        <option value="Jeep">Jeep</option>
+                        <option value="Mazda">Mazda</option>
+                        <option value="Volkswagen">Volkswagen</option>
+                        <option value="Lamborghini">Lamborghini</option>
+                        <option value="Nissan">Nissan</option>
                     </select>
                     <select name="category" onChange={handleCategoryChange}>
                         <option value="">All Categories</option>
                         <option value="electric">Electric</option>
+                        <option value="SUV">SUVs</option>
+                        <option value="sedan">Sedan</option>
+                        <option value="sports">Sports</option>
+                        <option value="hatchback">Hatchback</option>
+                        <option value="truck">Truck</option>
+                        <option value="hybrid">Hybrid</option>
+                        <option value="coupe">Coupe</option>
                     </select>
 
 
