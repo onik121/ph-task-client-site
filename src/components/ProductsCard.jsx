@@ -4,8 +4,8 @@ const ProductsCard = ({ product }) => {
     const { name, price, date, image, description, category } = product;
 
     return (
-        <div className="product-box">
-            <img className="max-h-[240px] w-full h-full" src={image}></img>
+        <div className="product-box h-auto">
+            <img className="product-img" src={image}></img>
             <div className="p-5">
                 <div className="flex items-center justify-between">
                     <h3 className="text-2xl font-semibold">{name}</h3>
