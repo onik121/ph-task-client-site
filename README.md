@@ -32,8 +32,6 @@ This repository contains the frontend code for the JobTASK project, a single-pag
 .REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
 .REACT_APP_FIREBASE_APP_ID=your_app_id
 
-5.Start the development server: npm start
+5. Start the development server: npm start
 
-##
-<tab><tab>code/text here
 
