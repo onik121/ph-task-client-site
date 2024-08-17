@@ -3,6 +3,7 @@ import { Button, Navbar } from "flowbite-react";
 import logo from '../assets/logo.jpg'
 import Hero from "../components/Hero";
 import Products from "../components/Products";
+import FooterBottom from "../components/FooterBottom";
 
 const Home = () => {
 
@@ -42,9 +43,7 @@ const Home = () => {
             </Navbar>
             <Hero></Hero>
             <Products></Products>
-            <div className="h-screen bg-red-100">
-
-            </div>
+            <FooterBottom></FooterBottom>
         </div>
     );
 };

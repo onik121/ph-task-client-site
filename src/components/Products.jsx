@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import ProductsCard from './ProductsCard';
+import left from '../assets/left.png';
+import right from '../assets/right.png';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -24,8 +26,8 @@ const Products = () => {
                 category: selectedCategory,
                 minPrice,
                 maxPrice,
-                sortBy
-            }
+                sortBy,
+            },
         });
         setProducts(res.data.products);
         setTotalPages(res.data.totalPages);
@@ -41,82 +43,86 @@ const Products = () => {
 
         // Get values from the form inputs
         const search = form.search.value;
-        const brand = form.brand.value;
-        const category = form.category.value;
         const minPrice = form.minPrice.value;
         const maxPrice = form.maxPrice.value;
-        const sortBy = form.sortBy.value;
 
         // Update the state variables
         setSearchTerm(search);
-        setSelectedBrand(brand);
-        setSelectedCategory(category);
         setMinPrice(minPrice);
         setMaxPrice(maxPrice);
-        setSortBy(sortBy);
 
+        setCurrentPage(1); // Reset to the first page
+    };
+
+    const handleBrandChange = (event) => {
+        setSelectedBrand(event.target.value);
+        setCurrentPage(1); // Reset to the first page
+    };
+
+    const handleCategoryChange = (event) => {
+        setSelectedCategory(event.target.value);
+        setCurrentPage(1); // Reset to the first page
+    };
+
+    const handleSortChange = (event) => {
+        setSortBy(event.target.value);
         setCurrentPage(1); // Reset to the first page
     };
 
     return (
         <div className='mt-20 mb-20 max-w-[1550px] mx-auto px-5'>
-            <form onSubmit={handleSearchSubmit}>
-                <input type="text" name="search" placeholder="Search Here..." />
 
-                {/* Brand Selector */}
-                <select name="brand">
+            <div className='text-center mb-8'>
+                <p>Find the Perfect Car Here</p>
+                <h1 className='text-4xl font-medium'>Finding Your Perfect Road Companion</h1>
+            </div>
+
+            <form className='text-center' onSubmit={handleSearchSubmit}>
+
+                <input type="text" name="search" placeholder="Search Here..." />
+                
+                <input type="number" name="minPrice" placeholder="Min Price" />
+                <input type="number" name="maxPrice" placeholder="Max Price" />
+
+                <button type="submit" className="button">Show Results</button>
+
+                <select name="brand" onChange={handleBrandChange}>
                     <option value="">All Brands</option>
                     <option value="Tesla">Tesla</option>
                     <option value="Audi">Audi</option>
                     <option value="BMW">BMW</option>
                 </select>
-
-                {/* Category Selector */}
-                <select name="category">
+                
+                <select name="category" onChange={handleCategoryChange}>
                     <option value="">All Categories</option>
                     <option value="electric">Electric</option>
-                    
                 </select>
 
-                {/* Price Range */}
-                <input type="number" name="minPrice" placeholder="Min Price" />
-                <input type="number" name="maxPrice" placeholder="Max Price" />
-
-                {/* Sort By */}
-                <select name="sortBy">
-                    <option value="">Sort By</option>
+                
+                <select name="sortBy" onChange={handleSortChange}>
+                    <option value="">All Prices</option>
                     <option value="priceAsc">Price: Low to High</option>
                     <option value="priceDesc">Price: High to Low</option>
-                    <option value="dateAsc">Date: Oldest First</option>
                     <option value="dateDesc">Date: Newest First</option>
                 </select>
 
-                {/* Apply Filters Button */}
-                <button type="submit" className="button">Show Results</button>
             </form>
 
             {/* Products List */}
-            <div className='product-container'>
+            <div className='product-container mt-10'>
                 {products.map(product => (
-                    // <div key={product._id}>{product.name}</div>
-                    <ProductsCard product={product}></ProductsCard>
+                    <ProductsCard key={product._id} product={product} />
                 ))}
             </div>
 
             {/* Pagination Controls */}
-            <div className='mt-5 bg-red-50 text-center'>
-                <button 
-                    onClick={() => setCurrentPage(currentPage - 1)} 
-                    disabled={currentPage === 1}
-                >
-                    Previous
+            <div className='flex justify-center items-center pagination mt-10'>
+                <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1} className='mr-5'>
+                    <img src={left} alt="Previous" />
                 </button>
                 <span>Page {currentPage} of {totalPages}</span>
-                <button 
-                    onClick={() => setCurrentPage(currentPage + 1)} 
-                    disabled={currentPage === totalPages}
-                >
-                    Next
+                <button onClick={() => setCurrentPage(currentPage + 1)} disabled={currentPage === totalPages} className='ml-5'>
+                    <img src={right} alt="Next" />
                 </button>
             </div>
         </div>

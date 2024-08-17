@@ -80,5 +80,16 @@
 
 .product-box {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    padding: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.pagination button {
+    border: 1px solid rgb(210, 210, 210);
+    width: 47px;
+    height: 47px;
+    border-radius: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
