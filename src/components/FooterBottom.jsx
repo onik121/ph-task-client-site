@@ -5,7 +5,7 @@ import logo from '../assets/logo.jpg'
 
 const FooterBottom = () => {
     return (
-        <Footer className="bg-[#f7f7f7] rounded-none shadow-none pt-10">
+        <Footer className="bg-[#f9fbfc] rounded-none shadow-none pt-10">
             <div className="w-full">
                 <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1 max-w-[1440px] mx-auto px-4">
                     <div>
