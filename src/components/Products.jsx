@@ -9,13 +9,14 @@ const Products = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
 
-    // States for filtering and sorting
+
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedBrand, setSelectedBrand] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('');
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
     const [sortBy, setSortBy] = useState('');
+    const [sortByDate, setDate] = useState('');
 
     const fetchProducts = async () => {
         const res = await axios.get(`http://localhost:5000/products`, {
@@ -27,6 +28,7 @@ const Products = () => {
                 minPrice,
                 maxPrice,
                 sortBy,
+                sortByDate
             },
         });
         setProducts(res.data.products);
@@ -35,87 +37,93 @@ const Products = () => {
 
     useEffect(() => {
         fetchProducts();
-    }, [currentPage, searchTerm, selectedBrand, selectedCategory, minPrice, maxPrice, sortBy]);
+    }, [currentPage, searchTerm, selectedBrand, selectedCategory, minPrice, maxPrice, sortBy, sortByDate]);
 
     const handleSearchSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
-
-        // Get values from the form inputs
         const search = form.search.value;
         const minPrice = form.minPrice.value;
         const maxPrice = form.maxPrice.value;
-
-        // Update the state variables
         setSearchTerm(search);
         setMinPrice(minPrice);
         setMaxPrice(maxPrice);
 
-        setCurrentPage(1); // Reset to the first page
+        setCurrentPage(1);
     };
 
     const handleBrandChange = (event) => {
         setSelectedBrand(event.target.value);
-        setCurrentPage(1); // Reset to the first page
+        setCurrentPage(1);
     };
 
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
-        setCurrentPage(1); // Reset to the first page
+        setCurrentPage(1);
     };
 
     const handleSortChange = (event) => {
         setSortBy(event.target.value);
-        setCurrentPage(1); // Reset to the first page
+        setCurrentPage(1);
     };
+
+
+    const handleDate = (event) => {
+        setDate(event.target.value);
+        setCurrentPage(1);
+    }
+
 
     return (
         <div className='mt-20 mb-20 max-w-[1550px] mx-auto px-5'>
 
             <div className='text-center mb-8'>
-                <p>Find the Perfect Car Here</p>
+                <p className='mb-2'>Find the Perfect Car Here</p>
                 <h1 className='text-4xl font-medium'>Finding Your Perfect Road Companion</h1>
             </div>
 
-            <form className='text-center' onSubmit={handleSearchSubmit}>
+            <form className='flex items-center justify-evenly' onSubmit={handleSearchSubmit}>
 
-                <input type="text" name="search" placeholder="Search Here..." />
-                
-                <input type="number" name="minPrice" placeholder="Min Price" />
-                <input type="number" name="maxPrice" placeholder="Max Price" />
+                <div>
+                    <input type="text" name="search" placeholder="Search Here..." />
 
-                <button type="submit" className="button">Show Results</button>
+                    <input type="number" name="minPrice" placeholder="Min Price" />
+                    <input type="number" name="maxPrice" placeholder="Max Price" />
 
-                <select name="brand" onChange={handleBrandChange}>
-                    <option value="">All Brands</option>
-                    <option value="Tesla">Tesla</option>
-                    <option value="Audi">Audi</option>
-                    <option value="BMW">BMW</option>
-                </select>
-                
-                <select name="category" onChange={handleCategoryChange}>
-                    <option value="">All Categories</option>
-                    <option value="electric">Electric</option>
-                </select>
+                    <button  type="submit" className="button ml-2">Show Results</button>
+                </div>
 
-                
-                <select name="sortBy" onChange={handleSortChange}>
-                    <option value="">All Prices</option>
-                    <option value="priceAsc">Price: Low to High</option>
-                    <option value="priceDesc">Price: High to Low</option>
-                    <option value="dateDesc">Date: Newest First</option>
-                </select>
+                <div>
+                    <select name="brand" onChange={handleBrandChange}>
+                        <option value="">All Brands</option>
+                        <option value="Tesla">Tesla</option>
+                        <option value="Audi">Audi</option>
+                        <option value="BMW">BMW</option>
+                    </select>
+                    <select name="category" onChange={handleCategoryChange}>
+                        <option value="">All Categories</option>
+                        <option value="electric">Electric</option>
+                    </select>
+
+
+                    <select name="sortBy" onChange={handleSortChange}>
+                        <option value="">All Prices</option>
+                        <option value="priceAsc">Price: Low to High</option>
+                        <option value="priceDesc">Price: High to Low</option>
+                    </select>
+                    <button onClick={handleDate} value={'dateDesc'} type="submit" className="button ml-2">Latest Models</button>
+                </div>
 
             </form>
 
-            {/* Products List */}
+            
             <div className='product-container mt-10'>
                 {products.map(product => (
                     <ProductsCard key={product._id} product={product} />
                 ))}
             </div>
 
-            {/* Pagination Controls */}
+            
             <div className='flex justify-center items-center pagination mt-10'>
                 <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1} className='mr-5'>
                     <img src={left} alt="Previous" />

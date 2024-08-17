@@ -1,6 +1,6 @@
 import useAuth from "../hooks/useAuth";
 import { Button, Navbar } from "flowbite-react";
-import logo from '../assets/logo.jpg'
+import logo from '../assets/logo.png'
 import Hero from "../components/Hero";
 import Products from "../components/Products";
 import FooterBottom from "../components/FooterBottom";
@@ -25,11 +25,11 @@ const Home = () => {
         <div>
             <Navbar className="fixed w-full">
                 <Navbar.Brand href="/">
-                    <img src={logo} className="w-[100px]" alt="Flowbite React Logo" />
+                    <img src={logo} className="w-[110px]" alt="Flowbite React Logo" />
                 </Navbar.Brand>
                 <div className="flex md:order-2">
                     {
-                        user && <Button onClick={handleLogout}>Log out</Button>
+                        user && <button className="button" onClick={handleLogout}>Log out</button>
                     }
                     <Navbar.Toggle />
                 </div>

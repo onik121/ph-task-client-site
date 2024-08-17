@@ -1,7 +1,7 @@
 import { Footer, FooterBrand, FooterCopyright, FooterDivider, FooterIcon, FooterLink, FooterLinkGroup, FooterTitle, } from "flowbite-react";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import logo from '../assets/logo.jpg'
+import logo from '../assets/logo.png'
 
 const FooterBottom = () => {
     return (
